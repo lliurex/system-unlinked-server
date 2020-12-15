@@ -1,0 +1,14 @@
+Source: systemd-unlinkedserver
+Section: admin
+Priority: optional
+Maintainer: Equipo LliureX <lliurex@gva.es>
+Uploaders: M.Angel Juan <m.angel.juan@gmail.com>, Raul Rodrigo Segura <lliurex_devel3@edu.gva.es>, Hector Garcia Huerta <lliurex_devel1@edu.gva.es>, Daniel Duran Vecino <daduve@gmail.com>, Juanma Navarro <juanma1980@gmail.com>, Juan Ramon Pelegrina <juapesai@hotmail.com>, Enrique Medina Gremaldos <quiqueiii@gmail.com>
+Build-Depends: llxsrchelper,debhelper (>= 7.0), dh-systemd
+Standards-Version: 4.1.4
+Homepage: https://github.com/lliurex/system-unlinkedServer
+
+Package: systemd-unlinkedserver
+Architecture: all
+Depends: n4d, netplan.io
+Description: systemd unit to bring up internal iface when link if down
+
