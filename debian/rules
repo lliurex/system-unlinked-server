@@ -12,4 +12,15 @@
 %:
 	dh $@ --with llxsrc,systemd
 
+override_dh_installsystemd:
+
+	dh_installsystemd --name=unlinkedServer
+
+override_dh_systemd_enable:
+        
+	dh_systemd_enable --name=unlinkedServer
+	
+override_dh_systemd_start:
+
+	dh_systemd_start --name=unlinkedServer
 
