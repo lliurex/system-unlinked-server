@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/share/lliurex-unlinkedServer/bringUp.sh
+ExecStart=/usr/share/unlinkedServer/bringUp.sh
 Restart=always
 RestartSec=2
 RestartPreventExitStatus=0
