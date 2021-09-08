@@ -1,3 +1,9 @@
+systemd-unlinkedserver (0.2) focal; urgency=medium
+
+  * Focal version
+
+ -- Raul Rodrigo Segura <raurodse@gmail.com>  Wed, 08 Sep 2021 10:11:47 +0200
+
 systemd-unlinkedserver (0.1) bionic; urgency=medium
 
   * Initial release. 
