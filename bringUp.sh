@@ -20,7 +20,7 @@ then
 	PROPOSED_IP=$(netplan-query $IFACE ip)
 	LINKSPEED=$(cat /sys/class/net/$IFACE/speed 2>/dev/null)
 
-	if [ -z $LINKSPEED ]
+	if [ -z $LINKSPEED ] || [ $LINKSPEED -lt 0 ]
 	then
 		#If no speed then there is no link so bring up iface
 		ip addr add $PROPOSED_IP dev $IFACE
