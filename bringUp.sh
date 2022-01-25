@@ -1,12 +1,17 @@
 #!/bin/bash
 
-INTERNAL_IFACE='/var/lib/n4d/variables-dir/INTERNAL_INTERFACE'
+INTERNAL_IFACE='/var/lib/n4d/variables/INTERNAL_INTERFACE'
+if [ ! -e $INTERNAL_FACE ]
+then
+	INTERNAL_IFACE='/var/lib/n4d/variables-dir/INTERNAL_INTERFACE'
+fi
+
 IFACE=""
 
 if [ -e $INTERNAL_IFACE ]
 then
 	#Get internal iface from n4d
-	IFACE=$(grep value $INTERNAL_IFACE | cut -d ":" -f2 | tr -d \"\ )
+	IFACE=$(grep value $INTERNAL_IFACE | cut -d ":" -f2 | tr -d \"\ | tr -d ,)
 fi
 
 if [ ! -z $IFACE ]
