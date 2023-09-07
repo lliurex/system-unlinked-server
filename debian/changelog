@@ -1,6 +1,6 @@
-systemd-unlinkedserver (0.4) jammy; urgency=medium
+systemd-unlinkedserver (0.3.1lliurex23) jammy; urgency=medium
 
-  * First jammy release
+  * Jammy release
 
  -- Juanma1980 <juanma1980@gmail.com>  Mon, 28 Nov 2022 11:14:38 +0100
 
