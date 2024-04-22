@@ -1,5 +1,10 @@
 #!/bin/bash
 
+function getIpFromRandom()
+{
+	PROPOSED_IP=127.$((1 + $RANDOM % 250)).$((1 + $RANDOM % 250)).$((1 + $RANDOM % 250))
+}
+
 function getIpFromN4dVar()
 {
 	INTERNAL_NETWORK='/var/lib/n4d/variables/INTERNAL_NETWORK'
@@ -9,6 +14,15 @@ function getIpFromN4dVar()
 	fi
 	PROPOSED_IP=$(grep value $INTERNAL_NETWORK | cut -d ":" -f2 | tr -d \"\ | tr -d ,)
 	PROPOSED_IP=${PROPOSED_IP%%.0}.254
+}
+
+function getIpFromDnsmasq()
+{
+	SERVERHOST=/var/lib/dnsmasq/hosts/server
+	if [ ! -e $SERVERHOST ]
+	then
+		PROPOSED_IP=$(head -n1 $SERVERHOST | cut -d " " -f1)
+	fi
 }
 
 INTERNAL_IFACE='/var/lib/n4d/variables/INTERNAL_INTERFACE'
@@ -28,7 +42,15 @@ fi
 if [ ! -z $IFACE ]
 then
 
-	PROPOSED_IP=$(netplan-query $IFACE ip) || getIpFromN4dVar
+	PROPOSED_IP=$(netplan-query $IFACE ip) || getIpFromDnsmasq
+	if [ -z PROPOSED_IP ]
+	then
+		getIpFromN4dVar
+	fi
+	if [ -z PROPOSED_IP ]
+	then
+		getIpFromRandom
+	fi
 	LINKSPEED=$(cat /sys/class/net/$IFACE/speed 2>/dev/null)
 
 	if [ -z $LINKSPEED ] || [ $LINKSPEED -lt 0 ]
