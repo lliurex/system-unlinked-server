@@ -1,3 +1,9 @@
+systemd-unlinkedserver (0.4) jammy; urgency=medium
+
+  * Ask n4d for ip if netplan-query fails 
+
+ -- Juanma1980 <juanma1980@gmail.com>  Mon, 22 Apr 2024 12:09:44 +0200
+
 systemd-unlinkedserver (0.3.1lliurex23) jammy; urgency=medium
 
   * Jammy release
