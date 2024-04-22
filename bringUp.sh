@@ -43,11 +43,11 @@ if [ ! -z $IFACE ]
 then
 
 	PROPOSED_IP=$(netplan-query $IFACE ip) || getIpFromDnsmasq
-	if [ -z PROPOSED_IP ]
+	if [ -z $PROPOSED_IP ]
 	then
 		getIpFromN4dVar
 	fi
-	if [ -z PROPOSED_IP ]
+	if [ -z $PROPOSED_IP ]
 	then
 		getIpFromRandom
 	fi
