@@ -1,5 +1,8 @@
 [Unit]
 Description=Brings up internal iface
+Requires=dnsmasq.service
+Wants=dnsmasq.service
+Before=dnsmasq.service
 After=network.target
 
 [Service]
