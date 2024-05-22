@@ -1,3 +1,9 @@
+systemd-unlinkedserver (0.4.2) jammy; urgency=medium
+
+  * Adding internal mask to ip addr call 
+
+ -- Hector Garcia Huerta <hectorgh@gmail.com>  Wed, 22 May 2024 11:26:14 +0200
+
 systemd-unlinkedserver (0.4.1) jammy; urgency=medium
 
   * Ask n4d for ip if netplan-query fails 
