@@ -39,6 +39,14 @@ then
 	IFACE=$(grep value $INTERNAL_IFACE | cut -d ":" -f2 | tr -d \"\ | tr -d ,)
 fi
 
+MASK="24"
+INTERNAL_MASK="/var/lib/n4d/variables/INTERNAL_MASK"
+
+if [ -e $INTERNAL_MASK ]; then
+	MASK=$( grep value $INTERNAL_MASK | cut -d ":" -f 2 |  tr -d , | xargs)
+fi
+
+
 if [ ! -z $IFACE ]
 then
 
@@ -56,7 +64,7 @@ then
 	if [ -z $LINKSPEED ] || [ $LINKSPEED -lt 0 ]
 	then
 		#If no speed then there is no link so bring up iface
-		ip addr add $PROPOSED_IP dev $IFACE
+		ip addr add $PROPOSED_IP/$MASK dev $IFACE
 		ip link set $IFACE up
 	fi
 fi
