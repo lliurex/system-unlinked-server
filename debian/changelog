@@ -1,3 +1,9 @@
+systemd-unlinkedserver (0.4.2-lliurex25) noble; urgency=medium
+
+  * Noble release
+
+ -- Juanma1980 <juanma1980@gmail.com>  Thu, 19 Sep 2024 12:07:03 +0200
+
 systemd-unlinkedserver (0.4.2) jammy; urgency=medium
 
   * Adding internal mask to ip addr call 

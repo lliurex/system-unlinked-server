@@ -8,6 +8,6 @@ Homepage: https://github.com/lliurex/system-unlinkedServer
 
 Package: systemd-unlinkedserver
 Architecture: all
-Depends: n4d, netplan.io
+Depends: n4d, netplan.io,dnsmasq
 Description: systemd unit to bring up internal iface when link if down
 
